@@ -1,0 +1,7 @@
+variable,F1 de,Spearman ρ,p
+NBR mediana quemado,F1 Prithvi,-0.736367107358755,0.00021384663968713257
+NBR mediana quemado,F1 control espectral,-0.7503759398496239,0.00013841163311276012
+contraste NBR,F1 Prithvi,0.625799216876899,0.0031635840710997924
+contraste NBR,F1 control espectral,0.4676691729323308,0.037588510204148884
+% del área quemada con NBR < 0,F1 Prithvi,0.5334838224228742,0.015417218488758138
+% del área quemada con NBR < 0,F1 control espectral,0.6069951538697808,0.004539170107867775

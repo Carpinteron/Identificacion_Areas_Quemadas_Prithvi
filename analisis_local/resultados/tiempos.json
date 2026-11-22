@@ -1,0 +1,17 @@
+{
+  "tar_verificacion_s": 0.002326900023035705,
+  "seleccion_por_configuracion_s": {
+    "20/10": 63.6,
+    "20/20": 70.2,
+    "4/20": 59.1,
+    "10/20": 64.0
+  },
+  "lectura_s": 4.405961400014348,
+  "carga_modelo_s": 12.71681220002938,
+  "embeddings_s": 17.368412200012244,
+  "embeddings_s_por_imagen": 0.4342103050003061,
+  "rf_entrenamiento_s": 5.750733399996534,
+  "evaluacion_s": 0.8309024999616668,
+  "curva_aprendizaje_s": 45.66698739991989,
+  "pico_ram_proceso_gb": 1.31
+}

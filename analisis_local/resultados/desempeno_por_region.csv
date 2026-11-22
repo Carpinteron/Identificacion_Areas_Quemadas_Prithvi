@@ -1,0 +1,3 @@
+región,escenas de entrenamiento,escenas de prueba,F1 media,IoU media,escenas con F1 < 0.4,F1 IC95
+Centro-Este,6,9,0.4811058845299999,0.38292019024949575,4,0.25–0.70
+Oeste,14,11,0.7568569547077014,0.6388288959829925,1,0.64–0.85

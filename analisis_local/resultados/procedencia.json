@@ -1,0 +1,45 @@
+{
+  "task": "quemadas",
+  "model": {
+    "repo": "ibm-nasa-geospatial/Prithvi-EO-1.0-100M",
+    "revision": "7b231fe5b0684e2ddd40c967fbc02e225ef77dc6",
+    "checkpoint": "Prithvi_100M.pt",
+    "device": "cpu",
+    "num_frames": 1
+  },
+  "ntrain": 20,
+  "ntest": 20,
+  "classes": [
+    0,
+    1
+  ],
+  "crop": "center224_pad_ignore",
+  "normalization": "train_zscore_by_band",
+  "head": "RandomForest(n_estimators=80, max_depth=10, class_weight=balanced, random_state=42), patch16 majority, frozen encoder",
+  "dataset": {
+    "repo": "ibm-nasa-geospatial/hls_burn_scars",
+    "revision": "1864285e25010d346a842e4f068b1a1d4248ed6d"
+  },
+  "hardware": {
+    "cpu": "Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz",
+    "nucleos_logicos": 8,
+    "ram_total_gb": 7.7,
+    "ram_disponible_al_iniciar_gb": 0.7,
+    "gpu_cuda": false,
+    "torch_hilos": 4,
+    "python": "3.13.5",
+    "so": "Windows-11-10.0.26300-SP0"
+  },
+  "packages": {
+    "torch": "2.7.1",
+    "torchvision": "0.22.1",
+    "timm": "0.9.2",
+    "numpy": "2.2.6",
+    "scikit-learn": "1.7.0",
+    "scipy": "1.16.0",
+    "rasterio": "1.5.2",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1"
+  },
+  "ejecucion": "local en CPU; seleccion de escenas identica a la de Colab"
+}
