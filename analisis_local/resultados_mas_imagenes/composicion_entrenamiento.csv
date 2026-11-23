@@ -1,0 +1,6 @@
+escenas de entrenamiento,del oeste,del centro y el este,% píxeles quemados,parches 16×16 válidos,% parches quemados,pruebas en un tile de entrenamiento,pruebas cuya escena 512 toca una de entrenamiento,pruebas cuyo recorte 224 toca uno de entrenamiento
+4,4,0,64.03559470663265,784,63.9030612244898,0,0,0
+10,7,3,52.67302369728729,1960,52.295918367346935,1,1,0
+20,14,6,37.842668359926755,3920,37.62755102040816,1,1,0
+40,26,14,38.61550718213511,7830,38.55683269476373,1,1,0
+60,38,22,38.592207823307085,11750,38.45106382978724,3,1,0

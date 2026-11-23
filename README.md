@@ -14,7 +14,8 @@ Proyecto del Grupo 1 del curso de Inteligencia Artificial. Segmenta cicatrices d
 | Línea base constante | 0,00 | 0,00 |
 
 - La métrica principal es la **media por escena**. El agregado por píxel (F1 0,85) es solo un complemento, porque lo domina una escena grande que está casi toda quemada.
-- Prithvi le gana a la línea base, pero **rinde igual que usar solo las bandas espectrales** con el mismo clasificador.
+- Prithvi le gana a la línea base, pero con 20 escenas de entrenamiento **rinde igual que usar solo las bandas espectrales** con el mismo clasificador.
+- **Con más imágenes de entrenamiento el modelo mejora, pero despacio:** con 60 escenas, el F1 por escena llega a 0,70 y la IoU a 0,58 (20 escenas de prueba). Prithvi queda por encima de las bandas solas, pero la diferencia no es concluyente.
 - Predecir por bloques de 480 m pone un **techo de IoU de 0,81**.
 - Los falsos negativos grandes vienen de la etiqueta: es el perímetro del incendio e incluye zonas que siguen verdes. Los falsos positivos son zonas más oscuras que su entorno, como sombras y vegetación rala.
 
@@ -25,15 +26,17 @@ Proyecto del Grupo 1 del curso de Inteligencia Artificial. Segmenta cicatrices d
 ├── README.md
 └── analisis_local/                     Análisis complementario ejecutado en local
     ├── analisis_20_imagenes.ipynb      Prueba ampliada a 20 escenas, controles, errores y curva de aprendizaje
+    ├── curva_mas_imagenes.ipynb        Curva con 4, 10, 20, 40 y 60 escenas de entrenamiento (mismas 20 de prueba)
     ├── prithvi_taller.py               Módulo del flujo (copia del que escribe el notebook principal)
     ├── soporte_local.py                Descarga y selección de escenas para correr sin Colab
     ├── requirements.txt                Versiones exactas con las que se ejecutó (CPU)
     ├── VALORES_PARA_EL_NOTEBOOK.md     Cifras y tablas que alimentan las secciones del notebook principal
-    └── resultados/
-        ├── figuras/                    Figuras numeradas (01 a 11) y una figura de resultado por escena
-        ├── escenas/                    Las 20 escenas de prueba en .npz (etiqueta, predicción y línea base)
-        ├── *.csv                       Métricas, matrices de confusión, controles, errores y curva de aprendizaje
-        └── *.json                      Procedencia de los datos, normalización, casos y tiempos
+    ├── resultados/
+    │   ├── figuras/                    Figuras numeradas (01 a 11) y una figura de resultado por escena
+    │   ├── escenas/                    Las 20 escenas de prueba en .npz (etiqueta, predicción y línea base)
+    │   ├── *.csv                       Métricas, matrices de confusión, controles, errores y curva de aprendizaje
+    │   └── *.json                      Procedencia de los datos, normalización, casos y tiempos
+    └── resultados_mas_imagenes/        Tablas y gráficas (figuras 12 y 13) de la curva con más imágenes
 ```
 
 ### Notebook principal: `Grupo_1_quemadas_Prithvi.ipynb`
@@ -49,6 +52,7 @@ Repite el flujo del notebook principal sin cambiar el modelo, la normalización 
 - **Controles:** la línea base, solo bandas espectrales con el mismo clasificador (`confusion_control_espectral.csv`) y el techo por bloques (`confusion_oraculo_parche.csv`).
 - **Análisis de errores con cifras:** de dónde vienen los errores, cómo cambian con la distancia al borde, las firmas espectrales, la visibilidad de la cicatriz y el desempeño por región.
 - **Curva de aprendizaje** según el número de imágenes de entrenamiento (`curva_aprendizaje.csv`).
+- **Más imágenes de entrenamiento:** el mismo flujo con 4, 10, 20, 40 y 60 escenas, evaluado en las mismas 20 escenas de prueba, con gráficas de F1, IoU, precisión y recall según el número de imágenes (`curva_mas_imagenes.ipynb`, `resultados_mas_imagenes/`).
 - **Verificación** de que entrenamiento y prueba no comparten escenas (`independencia_train_test.csv`).
 
 ## Cómo ejecutar
@@ -61,6 +65,7 @@ Repite el flujo del notebook principal sin cambiar el modelo, la normalización 
 pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cpu
 pip install -r analisis_local/requirements.txt
 jupyter notebook analisis_local/analisis_20_imagenes.ipynb
+jupyter notebook analisis_local/curva_mas_imagenes.ipynb   # curva con 40 y 60 escenas: menos de 5 min
 ```
 
 En CPU, cada imagen toma unos 0,45 s en el encoder. Las métricas pueden diferir de las de Colab con GPU en el tercer decimal.

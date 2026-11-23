@@ -50,12 +50,13 @@ Frases sugeridas: *En este subconjunto, las representaciones de Prithvi congelad
   - En 12 de 13 escenas, los falsos positivos tienen NIR menor que el fondo bien clasificado: zonas más oscuras, como sombras o vegetación rala.
   - El 46 % de los píxeles mal clasificados está en parches de borde; el 60 % de los FP está a ≤ 240 m del borde.
 
-## Corrida ampliada (P2)
+## Corrida con más imágenes (hecha: `curva_mas_imagenes.ipynb`)
 
-- No necesita GPU: unos minutos de cómputo más la lectura del `.tar.gz` (≈1 min por configuración en un portátil).
-- Referencia ya calculada con 20 de entrenamiento y 20 de prueba (las 10 de Colab + las 10 siguientes del mismo procedimiento): **IoU 0.524 [0.40–0.64] y F1 0.633 [0.49–0.76]**, media por escena. El agregado por píxel da F1 0.747.
-- El procedimiento de selección es anidado (se verificó que 4 ⊂ 10 ⊂ 20 en entrenamiento y que las 10 de prueba están dentro de las 20). Por eso, con `NTEST=40`, las 40 escenas de prueba deberían incluir estas 20, y conviene reportar también la métrica sobre ellas para comparar.
-- Curva de aprendizaje medida en las mismas 20 escenas de prueba (IoU media por escena): con 4, 10 y 20 escenas de entrenamiento, Prithvi obtiene 0.32, 0.47 y 0.52, y el control espectral 0.45, 0.48 y 0.54. Con 80 escenas se verá si Prithvi termina superando al control.
+- Mismo flujo con 4, 10, 20, 40 y 60 escenas de entrenamiento, evaluado siempre en las mismas 20 escenas de prueba. Sin GPU: menos de 5 min en el portátil.
+- Media por escena de Prithvi + RF (F1 / IoU): 4 → 0.425 / 0.316; 10 → 0.587 / 0.470; 20 → 0.633 / 0.524; 40 → 0.663 / 0.543; 60 → 0.703 / 0.578.
+- Control espectral (IoU): 0.454, 0.483, 0.543, 0.523 y 0.531. Con 60 escenas, Prithvi − control = +0.047 de IoU (IC95 de −0.013 a +0.109): Prithvi queda adelante, pero la diferencia no es concluyente.
+- De 20 a 60 escenas sube sobre todo el recall (de 0.60 a 0.70). La mejora se concentra en las 5 escenas difíciles (F1 de 0.15 a 0.43) y en el centro y el este (de 0.48 a 0.61).
+- Ya está en el notebook principal: tabla y viñetas en "Análisis de resultados", gráficas en la sección H2 y conclusiones.
 
 ## Preguntas de la ficha (P8): evidencia que se puede citar
 
@@ -67,7 +68,7 @@ Frases sugeridas: *En este subconjunto, las representaciones de Prithvi congelad
 
 - Agregar la media por escena (F1 0.64) junto al agregado (0.85).
 - Matizar "las representaciones de Prithvi sirven": superan a la línea base, pero en este subconjunto no a un control con bandas espectrales simples.
-- Agregar el resultado de la corrida ampliada cuando esté.
+- Resultado de la corrida con más imágenes: ya está en Conclusiones (F1 0.70 e IoU 0.58 con 60 escenas).
 
 ## Ejecución (P1)
 
