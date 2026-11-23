@@ -82,6 +82,10 @@ jupyter notebook analisis_local/curva_mas_imagenes.ipynb   # curva con 40 y 60 e
 ```
  
 En CPU, cada imagen toma unos 0,45 s en el encoder. Frente a Colab con GPU, las métricas agregadas difieren a lo sumo en 0,004; por escena las diferencias pueden llegar a 0,02 de F1.
+
+## Links 
+ Canva: https://canva.link/y91lbqaivvnaiwm
+ Video: https://youtu.be/ML62lOuQSJk
  
 ## Integrantes
  
