@@ -53,6 +53,8 @@ Repite el flujo del notebook principal sin cambiar el modelo, la normalización 
 - **Análisis de errores con cifras:** de dónde vienen los errores, cómo cambian con la distancia al borde, las firmas espectrales, la visibilidad de la cicatriz y el desempeño por región.
 - **Curva de aprendizaje** según el número de imágenes de entrenamiento (`curva_aprendizaje.csv`).
 - **Más imágenes de entrenamiento:** el mismo flujo con 4, 10, 20, 40 y 60 escenas, evaluado en las mismas 20 escenas de prueba, con gráficas de F1, IoU, precisión y recall según el número de imágenes (`curva_mas_imagenes.ipynb`, `resultados_mas_imagenes/`).
+- **Línea base con índice NBR:** regla de umbral sobre el NBR (NIR y SWIR2), con el umbral elegido solo con entrenamiento, por píxel y por bloque de 16 × 16 (`metricas_nbr_por_escena.csv`, `metricas_comparacion_nbr.csv`, `umbral_nbr.json`; celdas nuevas en el notebook principal).
+- **Extra Colombia:** contrato de entrada propuesto, etapas de validación y una celda que verifica el contrato sobre las escenas actuales (`verificacion_contrato_colombia.csv`).
 - **Verificación** de que entrenamiento y prueba no comparten escenas (`independencia_train_test.csv`).
 
 ## Cómo ejecutar
